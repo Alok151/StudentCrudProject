@@ -1,0 +1,25 @@
+[
+    {
+        "studId":11,
+        "stName":"Hari",
+        "stPer":70 ,
+        "stStandard":"HSC" 
+    },
+    {
+        "studId":15,
+        "stName":"Ravi",
+        "stPer":75 
+    },
+    {
+        "studId":18,
+        "stName":"Amit",
+        "stPer":84 ,
+        "stStandard":"HSC" 
+    },
+    {
+        "studId":21,
+        "stName":"Tushant",
+        "stPer":85 ,
+        "stStandard":"HSC" 
+    }
+]

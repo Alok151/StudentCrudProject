@@ -1,0 +1,86 @@
+
+<form [formGroup]="studentForm" >
+<section>
+    <br/>
+    <h2><u>Student Master</u></h2>
+<!-- 
+    <a [routerLink]="['/AddStudent']" class="btn btn-primary btn-sm" >Add Student</a> -->
+    
+    <button  (click)="openModal('custom-modal-1')" class="btn btn-primary btn-sm"> Add Student</button>  <br/><br/>
+    <table border="1" class="table table-dark">
+        <thead>
+            <th>Roll No.</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Percentage</th>
+            <th>Standard</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let st of studArray;let ind=index" style="text-align: center;
+            padding: 4px 0 !important;background-color:lightcyan;color:black;
+            font-family: Verdana, Geneva, sans-serif !important;
+            font-size: 11px !important;">
+                <td>{{st.studId}}</td>
+                <td>{{st.studName}}</td>
+                <td>{{st.studAge}}</td>
+                <td>{{st.studPer}}</td>
+                <td>{{st.studStandard}}</td>
+                <td> 
+                    <a href="JavaScript:void(0)" (click)="openModalbyIdDet('custom-modal-1');ShowStudent(st)" title="Show Details">Show Details</a> | 
+                    <a href="JavaScript:void(0)" (click)="openModalbyId('custom-modal-1');EditStudent(st)" title="Edit">Edit</a> |                    
+                    <a href="JavaScript:void(0)"
+                    (click)="DelStudDetail(ind)" title="Delete">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br/>
+    
+    <jw-modal id="custom-modal-1" class="modal">
+        <div style="text-align:left;margin-left:28px;"><h3>{{sttitle}} Student</h3><hr /></div>
+        <div class="col-sm-12">
+          <div class="form-row">
+            <div class="col-6">
+              <div class="form-group">
+                <input id="stid" class="form-control form-control-sm" style="display:none;" formControlName="studId" />
+                <label>Name:</label>
+                <input id="name" class="form-control form-control-sm" formControlName="studname" />
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="productDescription">Age:</label>
+                <input id="Age" class="form-control form-control-sm" formControlName="stage" />
+              </div>
+            </div>             
+            <div class="col-6">
+                <div class="form-group">
+                  <label for="productDescription">Percentage:</label>
+                  <input id="Perc" class="form-control form-control-sm" formControlName="stper" />
+                </div>
+              </div>       
+            <div class="col-6">
+              <div class="form-group">
+                <label for="standard">Standard:</label>              
+                <select id="standard" formControlName="studstd" class="form-control form-control-sm">
+                  <option value="SSC">SSC</option>
+                  <option value="HSC">HSC</option>
+                </select>
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group pt-2 text-right">
+            <div class="col-12">
+              <button *ngIf="sttitle=='Add'" type="button" (click)="addStudent()" class="btn btn-success">Save</button> &nbsp;
+              <button *ngIf="sttitle=='Edit'" type="button" (click)="addStudent()" class="btn btn-success">Update</button> &nbsp;
+              <button (click)="closeModal('custom-modal-1')" class="btn btn-secondary">Close</button>
+            </div>
+          </div>
+        </div>
+  
+      </jw-modal>
+    <hr>
+</section>
+</form>
